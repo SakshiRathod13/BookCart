@@ -1,11 +1,13 @@
-import React from 'react'
+import express from "express";
+const app=express();
+import {PORT} from "./config.js";
 
-const index = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
 
-export default index
+app.listen(PORT,()=>{
+    console.log(`App listening :${PORT}`);  
+
+})
+app.get('/',(req,res)=>{
+    console.log("Entered into server ");
+    return res.send("Hello World");
+})
